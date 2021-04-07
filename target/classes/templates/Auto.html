@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>AUTO</title>
+</head>
+<body>
+<h1 class="titoloAuto" align="center" >ARTICOLI AUTO </p>
+<table align="center" class="tableAuto">
+<form align="center" th:action ="@{/Auto}">
+			Cerca: <input type="text" name="keyword" id="keyword" size="60" th:value="${keyword}" required />
+    		&nbsp;
+    		<input type="submit" value="Cerca Auto" />
+    		&nbsp;
+    		<input type="button" value="Clean field" id="btnClear" onclick="clearSearch()" />
+		</form>
+		<p> </p>
+		
+<div align="center">
+	<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/Auto}]]";
+    }
+	</script>
+</div>
+<hr>
+<p> </p>
+<thead>
+<tr>
+<th> MARCA </th>
+<th> MODELLO </th>
+<th> COLORE </th>
+<th> PREZZO </th>
+<th> OPERAZIONI </th>
+</tr>
+</thead>
+
+<tr th:each="auto : ${auto}">
+<td th:text="${auto.marca}"></td>
+<td th:text="${auto.modello}"></td>
+<td th:text="${auto.colore}"></td>
+<td th:text="${auto.prezzo}"></td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a th:href="@{'/edit_Auto/' +${auto.id_auto}}"> EDIT </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a th:href="@{'/delete_Auto/' +${auto.id_auto}}"onclick="if (!(confirm('vuoi eliminare questa Auto?'))) return false"> DELETE </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</body>
+</html>

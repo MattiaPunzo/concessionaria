@@ -1,5 +1,5 @@
 it\begear\heroku\concessionaria\repository\AutoRepository.class
+it\begear\heroku\concessionaria\SpringbootHerokuConcessionariaAutoApplication.class
 it\begear\heroku\concessionaria\entity\Auto.class
 it\begear\heroku\concessionaria\controller\AppController.class
 it\begear\heroku\concessionaria\service\AutoService.class
-it\begear\heroku\concessionaria\SpringbootHerokuConcessionariaAutoApplication.class

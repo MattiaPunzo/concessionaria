@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>INSERISCI AUTO</title>
+</head>
+<body>
+	<div align="center" class="newObj">
+		<h1>CREA AUTO</h1>
+		<form action="#" th:action="@{/saveAuto}" th:object="${auto}"
+			method="post">
+			<table border="0" cellpadding=10>
+				<tr>
+					<td>MARCA:</td>
+					<td><input type="text" th:field="*{marca}" />
+					<td><br>
+					<td>MODELLO:</td>
+					<td><input type="text" th:field="*{modello}" />
+					<td><br>
+					<td>COLORE:</td>
+					<td><input type="text" th:field="*{colore}" />
+					<td><br>
+					<td>PREZZO:</td>
+					<td><input type="text" th:field="*{prezzo}" />
+					<td><br>
+				<tr>
+					<td colspan="2"><button type="submit" value="clicca qui" />
+						SALVA</td>
+			</table>
+
+
+
+
+
+
+		</form>
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+</body>
+</html>
