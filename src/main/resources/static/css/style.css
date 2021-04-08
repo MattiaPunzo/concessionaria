@@ -1,13 +1,13 @@
 @charset "ISO-8859-1";
 html {
-background: white;
+background: #000000;
 }
 
 body {
 max-width: 1920px;
 min-width: 1080px;
 margin: 0px auto;
-background: #ffffff;
+background: #000000;
 padding:0px 5px;
 }
 
