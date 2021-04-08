@@ -20,6 +20,10 @@ public class AutoService {
 		}
 		return repository.findAll();
 	}
+	
+	public List<Auto> orderByMarca(){
+	 return repository.orderByMarca();
+	}
 
 	public void save(Auto a) {
 		repository.save(a);

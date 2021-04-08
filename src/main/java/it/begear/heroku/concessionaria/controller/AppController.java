@@ -22,19 +22,14 @@ public class AppController {
 	AutoService autoService;
 
 	@RequestMapping("/")
-	public String viewHomePage(Model model, @Param("keyword") String keyword) {
-		List<Auto> auto = autoService.ListAll(keyword);
-
-		model.addAttribute("auto", auto);
-		model.addAttribute("keyword", keyword);
-
+	public String viewHomePage() {
 		return "index";
 	}
 	
 	@RequestMapping("/Auto")
 	public String viewHomePageAbb(Model model, @Param("keyword") String keyword) {
 		List<Auto> auto = autoService.ListAll(keyword);
-
+		auto = autoService.orderByMarca();
 		model.addAttribute("auto", auto);
 		model.addAttribute("keyword", keyword);
 		
