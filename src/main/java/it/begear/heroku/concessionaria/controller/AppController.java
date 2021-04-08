@@ -27,7 +27,7 @@ public class AppController {
 	}
 	
 	@RequestMapping("/Auto")
-	public String viewHomePageAbb(Model model, @Param("keyword") String keyword) {
+	public String viewHomePageAuto(Model model, @Param("keyword") String keyword) {
 		List<Auto> auto = autoService.ListAll(keyword);
 		auto = autoService.orderByMarca();
 		model.addAttribute("auto", auto);
@@ -37,20 +37,20 @@ public class AppController {
 	}
 	
 	@RequestMapping("/newAuto")
-	public String showNewAbbigliamento(Model model) {
+	public String showNewAuto(Model model) {
 		Auto a = new Auto();
 		model.addAttribute("auto", a);
 		return "NewAuto";
 	}
 	
 	@RequestMapping(value = "/saveAuto", method = RequestMethod.POST)
-	public String saveAbbigliamento(@ModelAttribute("auto") Auto a) {
+	public String saveAuto(@ModelAttribute("auto") Auto a) {
 		autoService.save(a);
 		return "redirect:/";
 	}
 	
 	@RequestMapping("/edit_Auto/{id_auto}")
-	public ModelAndView showEditNewAbbgiliamento(@PathVariable(name = "id_auto") int id_auto) {
+	public ModelAndView showEditNewAuto(@PathVariable(name = "id_auto") int id_auto) {
 		ModelAndView mav = new ModelAndView("Edit_Auto");
 		Auto a = autoService.getAuto(id_auto);
 		mav.addObject("auto", a);
@@ -58,7 +58,7 @@ public class AppController {
 	}
 	
 	@RequestMapping("delete_Auto/{id_auto}")
-	public String deleteAbbigliamento(@PathVariable(name = "id_auto") int id_auto) {
+	public String deleteAuto(@PathVariable(name = "id_auto") int id_auto) {
 		autoService.delete(id_auto);
 		return "redirect:/";
 	}
