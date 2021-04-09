@@ -20,7 +20,7 @@ public class AutoService {
 	public List<Auto> ListAll(String keyword) {
 		List<Auto> auto = new ArrayList<Auto>();
 		if (keyword != null) {
-			auto = repository.search(keyword);
+			auto = repository.searchAuto(keyword);
 		} else {
 			 auto = repository.findAll();
 		}
