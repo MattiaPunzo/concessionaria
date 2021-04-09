@@ -13,22 +13,27 @@
 			<table border="0" cellpadding=10>
 				<tr>
 					<td>MARCA:</td>
-					<td><input type="text" th:field="*{marca}" />
+					<td><input type="text" th:field="*{marca}" required/>
 					<td><br>
 					<td>MODELLO:</td>
-					<td><input type="text" th:field="*{modello}" />
+					<td><input type="text" th:field="*{modello}" required />
 					<td><br>
 					<td>COLORE:</td>
-					<td><input type="text" th:field="*{colore}" />
+					<td><input type="text" th:field="*{colore}" required />
 					<td><br>
 					<td>PREZZO:</td>
-					<td><input type="text" th:field="*{prezzo}" />
+					<td><input type="text" th:field="*{prezzo}" required />
 					<td><br>
 				<tr>
 				
 			<div class="bt"> 
 			<button type="submit" value="clicca qui">SALVA </button>
 			</div>	
+			
+			<div class="home">
+		<a href="/index"><img th:src="@{/image/tastohomeee.png}" width="120"
+			height="120"></a>
+	</div>
 		
 			</table>
 		</form>

@@ -1,5 +1,8 @@
 package it.begear.heroku.concessionaria.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +18,14 @@ public class AutoService {
 	private AutoRepository repository;
 
 	public List<Auto> ListAll(String keyword) {
+		List<Auto> auto = new ArrayList<Auto>();
 		if (keyword != null) {
-			return repository.search(keyword);
+			auto = repository.search(keyword);
+		} else {
+			 auto = repository.findAll();
 		}
-		return repository.findAll();
-	}
-	
-	public List<Auto> orderByMarca(){
-	 return repository.orderByMarca();
+	   Collections.sort(auto, Comparator.comparing(Auto::getMarca)); 
+	   return auto;
 	}
 
 	public void save(Auto a) {

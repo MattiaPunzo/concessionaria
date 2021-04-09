@@ -26,15 +26,20 @@ public class AppController {
 		return "index";
 	}
 	
+	@RequestMapping("/index")
+	public String returnHomepage() {
+		return "redirect:/";
+	}
+	
 	@RequestMapping("/Auto")
 	public String viewHomePageAuto(Model model, @Param("keyword") String keyword) {
 		List<Auto> auto = autoService.ListAll(keyword);
-		auto = autoService.orderByMarca();
 		model.addAttribute("auto", auto);
 		model.addAttribute("keyword", keyword);
 		
 		return "Auto";
 	}
+	
 	
 	@RequestMapping("/newAuto")
 	public String showNewAuto(Model model) {

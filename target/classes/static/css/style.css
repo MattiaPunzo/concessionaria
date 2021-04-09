@@ -97,3 +97,15 @@ border-radius:20px;
  bottom: 230px; 
  right: 740px; 
 }
+
+.tastohome{
+position: fixed;
+top: 40px;
+left: 100px;
+}
+
+.home{
+position: fixed;
+top: 300px;
+right:710px;
+}

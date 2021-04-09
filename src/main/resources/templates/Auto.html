@@ -6,7 +6,7 @@
 <title>AUTO</title>
 </head>
 <body>
-<h1 class="titoloAuto" align="center" > LISTA AUTO </p>
+<h1 class="titoloAuto" align="center"> LISTA AUTO </p>
 <table align="center" class="tableAuto">
 <form align="center" th:action ="@{/Auto}">
 			Cerca: <input type="text" name="keyword" id="keyword" size="60" th:value="${keyword}" required />
@@ -24,6 +24,10 @@
     }
 	</script>
 </div>
+<div class="tastohome">
+		<a href="/index"><img th:src="@{/image/tastohomeee.png}" width="120"
+			height="120"></a>
+	</div>
 <hr>
 <p> </p>
 <thead>
@@ -32,6 +36,7 @@
 <th> MODELLO </th>
 <th> COLORE </th>
 <th> PREZZO </th>
+<th> OPERAZIONI </th>
 <th> OPERAZIONI </th>
 </tr>
 </thead>
