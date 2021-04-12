@@ -21,7 +21,7 @@ public class Auto {
 	@Column(name = "colore")
 	private String colore;
 	@Column(name = "prezzo")
-	private double prezzo;
+	private Double prezzo;
 
 	public Auto() {
 
@@ -59,12 +59,16 @@ public class Auto {
 		this.colore = colore;
 	}
 
-	public double getPrezzo() {
+	public Double getPrezzo() {
 		return prezzo;
 	}
 
-	public void setPrezzo(double prezzo) {
+	public void setPrezzo(Double prezzo) {
 		this.prezzo = prezzo;
 	}
+
+   
+
+
 
 }

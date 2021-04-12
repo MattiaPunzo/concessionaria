@@ -39,5 +39,5 @@ public class AutoService {
 	public void delete(Integer id_auto) {
 		repository.deleteById(id_auto);
 	}
-
+	
 }

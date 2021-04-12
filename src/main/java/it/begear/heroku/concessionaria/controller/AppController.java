@@ -38,6 +38,7 @@ public class AppController {
 	@RequestMapping("/Auto")
 	public String viewHomePageAuto(Model model, @Param("keyword") String keyword) {
 		List<Auto> auto = autoService.ListAll(keyword);
+		
 		model.addAttribute("auto", auto);
 		model.addAttribute("keyword", keyword);
 		
