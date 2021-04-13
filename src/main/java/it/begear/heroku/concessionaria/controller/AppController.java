@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.begear.heroku.concessionaria.entity.Auto;
+import it.begear.heroku.concessionaria.entity.Bicicletta;
 import it.begear.heroku.concessionaria.entity.Moto;
 import it.begear.heroku.concessionaria.service.AutoService;
+import it.begear.heroku.concessionaria.service.BiciclettaService;
 import it.begear.heroku.concessionaria.service.MotoService;
 
 @Controller
@@ -24,6 +26,8 @@ public class AppController {
 	AutoService autoService;
 	@Autowired
 	MotoService motoService;
+	@Autowired
+	BiciclettaService biciService;
 
 	@RequestMapping("/")
 	public String viewHomePage() {
@@ -55,6 +59,16 @@ public class AppController {
 		return "Moto";
 	}
 	
+	@RequestMapping("/Bicicletta")
+	public String viewHomePageBicicletta(Model model, @Param("keyword") String keyword) {
+		List<Bicicletta> bici = biciService.listAll(keyword);
+		
+		model.addAttribute("bici",bici);
+		model.addAttribute("bici", bici);
+		
+		return "Bicicletta";
+	}
+	
 	
 	@RequestMapping("/newAuto")
 	public String showNewAuto(Model model) {
@@ -71,6 +85,14 @@ public class AppController {
 		return "NewMoto";
 	}
 	
+	@RequestMapping("/newBicicletta")
+	public String showNewBicicletta(Model model) {
+		Bicicletta b = new Bicicletta();
+		model.addAttribute("bici", b);
+		
+		return "NewBicicletta";
+	}
+	
 	
 	@RequestMapping(value = "/saveAuto", method = RequestMethod.POST)
 	public String saveAuto(@ModelAttribute("auto") Auto a) {
@@ -81,6 +103,12 @@ public class AppController {
 	@RequestMapping(value = "/saveMoto", method = RequestMethod.POST)
 	public String saveMoto(@ModelAttribute("moto") Moto m){
 		motoService.saveMoto(m);
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/saveBicicletta", method = RequestMethod.POST)
+	public String saveBicicletta(@ModelAttribute("bici") Bicicletta b) {
+		biciService.saveBicicletta(b);
 		return "redirect:/";
 	}
 	
@@ -100,6 +128,14 @@ public class AppController {
 		return mav;
 	}
 	
+	@RequestMapping("/edit_Bicicletta/{id_bicicletta}")
+	public ModelAndView showEditNewBici(@PathVariable(name="id_bicicletta") int id_bicicletta) {
+	    ModelAndView mav = new ModelAndView("Edit_Bicicletta");
+	    Bicicletta b = biciService.getBici(id_bicicletta);
+	    mav.addObject("bici", b);
+	    return mav;
+	}
+	
 	@RequestMapping("delete_Auto/{id_auto}")
 	public String deleteAuto(@PathVariable(name = "id_auto") int id_auto) {
 		autoService.delete(id_auto);
@@ -109,6 +145,12 @@ public class AppController {
 	@RequestMapping("delete_Moto/{id_moto}")
 	public String deleteMoto(@PathVariable(name="id_moto")int id_moto) {
 		motoService.deleteMoto(id_moto);
+		return "redirect:/";
+	}
+	
+	@RequestMapping("delete_Bicicletta/{id_bicicletta}")
+	public String deleteBici(@PathVariable(name="id_bicicletta") int id_bicicletta) {
+		biciService.deleteBici(id_bicicletta);
 		return "redirect:/";
 	}
 	

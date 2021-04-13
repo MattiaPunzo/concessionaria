@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<title>BICICLETTA</title>
+</head>
+<body>
+<h1 class="titoloBicicletta" align="center"> LISTA BICI </p>
+<table align="center" class="tableBicicletta">
+<form align="center" th:action ="@{/Bicicletta}">
+			Cerca: <input type="text" name="keyword" id="keyword" size="60" th:value="${keyword}" required />
+    		&nbsp;
+    		<input type="submit" value="Cerca Bicicletta" />
+    		&nbsp;
+    		<input type="button" value="Clean field" id="btnClear" onclick="clearSearch()" />
+		</form>
+		<p> </p>
+		
+<div align="center">
+	<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/Bicicletta}]]";
+    }
+	</script>
+</div>
+<div class="tastohome">
+		<a href="/index"><img th:src="@{/image/tastohomeee.png}" width="120"
+			height="120"></a>
+	</div>
+<hr>
+<p> </p>
+<thead>
+<tr>
+<th> MARCA </th>
+<th> MODELLO </th>
+<th> COLORE </th>
+<th> PREZZO </th>
+<th> OPERAZIONI </th>
+<th> OPERAZIONI </th>
+</tr>
+</thead>
+
+<tr th:each="bici : ${bici}">
+<td th:text="${bici.marca}"></td>
+<td th:text="${bici.modello}"></td>
+<td th:text="${bici.colore}"></td>
+<td th:text="${bici.prezzo}"></td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a th:href="@{'/edit_Bicicletta/' +${bici.id_bicicletta}}"> EDIT </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<td><a th:href="@{'/delete_Bicicletta/' +${bici.id_bicicletta}}"onclick="if (!(confirm('vuoi eliminare questa Bicicletta?'))) return false"> DELETE </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</body>
+</html>
