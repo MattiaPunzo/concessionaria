@@ -16,7 +16,7 @@ public class AutoService {
 
 	@Autowired
 	private AutoRepository repository;
-
+	
 	public List<Auto> ListAll(String keyword) {
 		List<Auto> auto = new ArrayList<Auto>();
 		if (keyword != null) {
@@ -24,7 +24,7 @@ public class AutoService {
 		} else {
 			 auto = repository.findAll();
 		}
-	   Collections.sort(auto, Comparator.comparing(Auto::getMarca)); 
+		Collections.sort(auto, Comparator.comparing(Auto::getMarca)); 
 	   return auto;
 	}
 
